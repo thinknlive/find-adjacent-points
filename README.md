@@ -1,19 +1,20 @@
-/*
-* Problem Description:
-*
-* You are given a monochrome image where each pixel is
-* either 0 or 1. You are also given the location of one of
-* the pixels in the image in the image that is set to 1.
+```
+Problem Description:
 
-* Implement an algorithm that returns a list of all "one"
-* pixels that are connected to the input pixel. Connected
-* refers to any cells that are horizontally or vertically
-* adjacent, but does not include diagonally adjacent.
-*
-*/
+You are given a monochrome image where each pixel is
+either 0 or 1. You are also given the location of one of
+the pixels in the image in the image that is set to 1.
+
+Implement an algorithm that returns a list of all "one"
+pixels that are connected to the input pixel. Connected
+refers to any cells that are horizontally or vertically
+adjacent, but does not include diagonally adjacent.
+
+```
 
 INPUT
 
+```
 var test_mat = [[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0],
@@ -24,10 +25,11 @@ var test_mat = [[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
                 [0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
                ];
-
+```
 
 OUTPUT:
 
+```
 START: [1,2]
 [ [ 1, 2 ],
   [ 1, 3 ],
@@ -79,4 +81,4 @@ START: [8,1]
   [ 7, 5 ],
   [ 8, 1 ],
   [ 8, 5 ] ]
-
+```
