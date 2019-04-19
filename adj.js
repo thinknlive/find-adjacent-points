@@ -12,15 +12,15 @@
 *
 */
 
-var test_mat = [[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0],
-                [0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
-                [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0],
-                [0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
-                [0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
-                [0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
+var test_mat = [[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+                [0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1],
+                [0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1],
+                [0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
+                [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1],
+                [0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1],
+                [0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1],
+                [0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1],
+                [0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1],
                ];
 
 
@@ -40,10 +40,10 @@ function reachable_ones(mat, i, j) {
 
                   if (x > 0) {
                     let point = mat[x-1][y];
-                    let pointxy = String((x-1)*xdim+y);
-                    let checked = !!matched[pointxy];
+                    let keyxy = String((x-1)*xdim+y);
+                    let checked = !!matched[keyxy];
                     if (point === 1 && !checked) {
-                      matched[pointxy] = point;
+                      matched[keyxy] = point;
                       //mat[x-1][y] = 2;
                       result.push([x-1,y]);
                       walk(x-1, y);
@@ -52,10 +52,10 @@ function reachable_ones(mat, i, j) {
 
                   if (x < xlen-1) {
                     let point = mat[x+1][y];
-                    let pointxy = String((x+1)*xdim+y);
-                    let checked = !!matched[pointxy];
+                    let keyxy = String((x+1)*xdim+y);
+                    let checked = !!matched[keyxy];
                     if (point === 1 && !checked) {
-                      matched[pointxy] = point;
+                      matched[keyxy] = point;
                       //mat[x+1][y] = 2;
                       result.push([x+1,y]);
                       walk(x+1, y);
@@ -64,10 +64,10 @@ function reachable_ones(mat, i, j) {
 
                   if (y > 0) {
                     let point = mat[x][y-1];
-                    let pointxy = String(x*xdim+(y-1));
-                    let checked = !!matched[pointxy];
+                    let keyxy = String(x*xdim+(y-1));
+                    let checked = !!matched[keyxy];
                     if (point  === 1 && !checked) {
-                      matched[pointxy] = point;
+                      matched[keyxy] = point;
                       //mat[x][y-1] = 2;
                       result.push([x,y-1]);
                       walk(x, y-1);
@@ -76,10 +76,10 @@ function reachable_ones(mat, i, j) {
 
                   if (y < ylen-1) {
                     let point = mat[x][y+1];
-                    let pointxy = String(x*xdim+(y+1));
-                    let checked = !!matched[pointxy];
+                    let keyxy = String(x*xdim+(y+1));
+                    let checked = !!matched[keyxy];
                     if (point === 1 && !checked) {
-                      matched[pointxy] = point;
+                      matched[keyxy] = point;
                       //mat[x][y+1] = 2;
                       result.push([x,y+1]);
                       walk(x, y+1);
@@ -91,10 +91,10 @@ function reachable_ones(mat, i, j) {
 
  let x=i, y=j;
  let point = mat[x][y];
- let pointxy = String(x*xdim+(y));
- let checked = !!matched[pointxy];
+ let keyxy = String(x*xdim+(y));
+ let checked = !!matched[keyxy];
  if (point === 1 && !checked) {
-   matched[pointxy] = point;
+   matched[keyxy] = point;
    result.push([x,y]);
    walk(x, y);
  }
